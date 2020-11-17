@@ -3,7 +3,7 @@ import LogoWhite from '../../assets/logo-white.png';
 
 import './styles.css';
 
-const Header = ({ whiteVersion }) => {
+const Header = ({ whiteVersion, hideCart }) => {
 
   const openDrawer = () => {
     const event = new CustomEvent('openCart');
@@ -15,12 +15,12 @@ const Header = ({ whiteVersion }) => {
       <header className="py-4 px-4 text-center">
         <img src={whiteVersion ? LogoWhite : Logo} className="img-fluid" alt="Logo"/>
       </header>
-      <button 
+      {!hideCart && <button 
         onClick={() => openDrawer()} 
         className="btn btn-secondary cart-button"
       >
         <span className="mdi mdi-cart"></span>2 ítens
-      </button>
+      </button>}
     </div>
   )
 }
