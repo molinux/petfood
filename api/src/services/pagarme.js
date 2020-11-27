@@ -1,4 +1,5 @@
 const axios = require('axios');
+require('dotenv/config');
 
 // const api_key = require('dotenv/config').API_KEY;
 
@@ -9,8 +10,9 @@ const api = axios.create({
 // The original
 // const api_key = require('../data/keys.json').api_key;
 // And this is my try with dotenv
-const api_key = require('dotenv/config').API_KEY;
+// const api_key = require('dotenv/config').API_KEY;
 // const api_key = API_KEY;
+const api_key = process.env.API_KEY;
 
 module.exports = {
   createRecipient: async (name) => {
