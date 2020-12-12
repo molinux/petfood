@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { requestPetshops } from '../../store/modules/shop/actions';
 
 import Header from '../../components/header';
@@ -12,6 +12,7 @@ import './styles.css';
 const Home = () => {
 
   const dispatch = useDispatch();
+  const { petshops } = useSelector((state) => state.shop)
 
   useEffect(() => {
     dispatch(requestPetshops());
@@ -24,10 +25,12 @@ const Home = () => {
           <h5>Mais próximos de você (5)</h5>
         </div>
         <ul className="col-12 petshop-list">
-          {[1,2,3,4,5,6,7,8,9].map(p => <Petshop />)}
+          {petshops.map((p) => (
+            <Petshop petshop={p} />
+          ))}
         </ul>
       </div>
-      <Map />
+      <Map petshops={petshops} />
     </div>
   )
 }

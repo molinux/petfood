@@ -3,12 +3,12 @@ import MarkerIconSelected from '../../assets/marker-selected.png';
 
 import './styles.css';
 
-const Marker = () => {
+const Marker = ({ petshop }) => {
   return (
     <div>
-      <img src={MarkerIconSelected} alt=""/>
+      <img src={MarkerIcon} alt=""/>
       <img
-        src="https://www.petlove.com.br/static/uploads/banner_image/image/4304/logo-petlove-push.png"
+        src={petshop.logo}
         alt="petlove"
         className="img-marker"
       />
