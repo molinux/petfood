@@ -10,11 +10,11 @@ import './styles.css';
 const Petshop = ({ match }) => {
 
   const dispatch = useDispatch();
-  const { petshop } = useSelector(state => state.shop)
+  const { petshop } = useSelector((state) => state.shop)
   // useEffect = When component is loaded, run this
   useEffect(() => {
     dispatch(requestPetshop(match.params.id))
-  },[]);
+  }, []);
 
   return (
     <div className="h-100">
@@ -44,7 +44,7 @@ const Petshop = ({ match }) => {
             <h5>Produtos</h5>
             <br />
             <div className="row">
-            {petshop.products.map((p) => (<Product product={p}/>))}
+            {petshop.products?.map((p) => (<Product product={p}/>))}
             </div>
           </div>
         </div>

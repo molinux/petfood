@@ -15,7 +15,7 @@ const Marker = ({ petshop }) => {
       <img src={petshopMapSelected === petshop._id ? MarkerIconSelected : MarkerIcon} alt=""/>
       <img
         src={petshop.logo}
-        alt="petlove"
+        alt="Petlove"
         className="img-marker"
       />
     </Link>
