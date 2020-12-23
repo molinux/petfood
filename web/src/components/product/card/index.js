@@ -1,6 +1,14 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleCartProduct } from '../../../store/modules/shop/actions';
+
 import './styles.css';
 
 const Product = ({ product }) => {
+
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.shop);
+  const added = cart.findIndex((p) => p._id === product._id) !== -1;
+
   return (
     <div className="product col-3">
       <img 
@@ -8,7 +16,12 @@ const Product = ({ product }) => {
         alt="" 
         className="img-fluid align-center"
       />
-      <button className="btn btn-primary rounded-circle">+</button>
+      <button 
+        onClick={() => dispatch(toggleCartProduct(product))} 
+        className={`btn btn-${added ? 'secondary' : 'primary'} rounded-circle`}
+      >
+        {added ? '-' : '+'} 
+      </button>
       <h4>
         {/* toFixed(2) = 2 two decimals */}
         <label className="badge badge-primary">R$ {product.preco.toFixed(2)}</label>

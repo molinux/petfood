@@ -26,4 +26,16 @@ export function requestPetshop(id) {
 
 export function setPetshop(petshop) {
   return { type: types.SET_PETSHOP, petshop};
-}
+};
+
+export function toggleCartProduct(product) {
+  return { type: types.TOGGLE_CART_PRODUCT, product };
+};
+
+export function setTransaction(transaction) {
+  return { type: types.SET_TRANSACTION, transaction };
+};
+
+export function makePurchase() {
+  return { type: types.MAKE_PURCHASE };
+};

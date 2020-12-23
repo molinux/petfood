@@ -19,7 +19,7 @@ router.get('/petshop/:id', async(req, res) => {
     const petshop = await Petshop.findById(req.params.id);
     let products = await Product.find({
       petshop_id: petshop._id
-    });
+    }).populate('petshop_id', 'recipient_id');
     res.json({ error: false, petshop: {...petshop._doc, products } });
 
   } catch (err) {

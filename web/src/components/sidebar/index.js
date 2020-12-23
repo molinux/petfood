@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Dock from 'react-dock';
 
 import Product from '../product/list';
@@ -7,6 +9,12 @@ import './styles.css';
 
 const Sidebar = () => {
 
+  const history = useHistory();
+  const { cart } = useSelector((state)=> state.shop );
+  //TODO: Passar para o Redux
+  const total = cart.reduce((total, product) => {
+    return total + product.preco;
+  }, 0);
   const [opened, setOpened] = useState(false);
 
   useEffect(() => {
@@ -24,17 +32,20 @@ const Sidebar = () => {
       position="right"
     >
       <div className="container-fluid h-100 pt-4 sidebar">
-        <h5>Minha Sacola (5)</h5>
+        <h5>Minha Sacola ({cart.length})</h5>
 
         <div className="row products">
-          {[1,2,3,4,5,6,7,8,9].map((p) => <Product />)}
+          {cart.map((p) => <Product product={p} />)}
         </div>
         <div className="row align-items-end footer">
           <div className="col-12 d-flex justify-content-between align-items-center">
             <b className="d-inline-block">Total</b>
-            <h3 className="d-inline-block">R$ 90,00</h3>
+            <h3 className="d-inline-block">R$ {total.toFixed(2)}</h3>
           </div>
-          <button className="btn btn-block btn-lg btn-primary rounded-0 h-50 align-items-center">
+          <button 
+            onClick={() => history.push('/cadastro')}
+            className="btn btn-block btn-lg btn-primary rounded-0 h-50 align-items-center"
+          >
             Finalizar Compra
           </button>
         </div>

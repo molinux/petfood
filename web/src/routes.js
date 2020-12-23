@@ -16,8 +16,8 @@ const Routes = () => {
         <Route path="/cadastro" component={Cadastro} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/petshop/:id" component={Petshop} />
+        <Sidebar />
       </Router>
-      <Sidebar />
     </>
   );
 }

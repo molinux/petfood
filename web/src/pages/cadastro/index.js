@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCustomer as setStoreCustomer } from '../../store/modules/shop/actions';
+import {  Link } from 'react-router-dom';
 
 import Header from '../../components/header';
 
@@ -90,9 +91,12 @@ const Cadastro = () => {
             }}
           />
 
-          <button onClick={() => goToCheckout()} className="btn btn-lg btn-block btn-secondary">
+          <Link 
+            to='/checkout'
+            onClick={() => goToCheckout()} className="btn btn-lg btn-block btn-secondary"
+          >
             Finalizar Pedido
-          </button>
+          </Link>
         </div>
       </div>
       </div>
