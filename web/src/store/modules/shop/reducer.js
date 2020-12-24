@@ -17,27 +17,27 @@ const INITIAL_STATE = {
     liable: true,
   },
   transaction: {
-    "amount": 0,
-    "card_number": '',
-    "card_cvv": '',
-    "card_expiration_date": '',
-    "card_holder_name": '',
-    "customer": {},
-    "billing": {
-      "name": 'Petfood LTDA',
-      "address": {
-        "country": "br",
-        "state": "sp",
-        "city": "Cotia",
-        "neighborhood": "Rio Cotia",
-        "street": "Rua Matrix",
-        "street_number": "9999",
-        "zipcode": "06714360"
+    amount: 0,
+    card_number: '',
+    card_cvv: '',
+    card_expiration_date: '',
+    card_holder_name: '',
+    customer: {},
+    billing: {
+      name: 'Petfood LTDA',
+      address: {
+        country: 'br',
+        state: 'sp',
+        city: 'Cotia',
+        neighborhood: 'Rio Cotia',
+        street: 'Rua Matrix',
+        street_number: '9999',
+        zipcode: '06714360'
       }
     },
-    "shipping": {},
-    "items": [],
-    "split_rules": []
+    shipping: {},
+    items: [],
+    split_rules: []
   }
 };
 
